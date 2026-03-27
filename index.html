@@ -5,20 +5,19 @@
 <title>Sayali Portfolio</title>
 
 <style>
+/* ===== Basic Styles ===== */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   background: #0f172a;
   color: white;
+  transition: 0.3s;
 }
 
-header {
-  text-align: center;
-  padding: 50px;
-  background: linear-gradient(90deg, #2563eb, #38bdf8);
+body.light-mode {
+  background: #f8fafc;
+  color: #0f172a;
 }
-
-h1 { margin: 0; font-size: 40px; }
 
 .container {
   max-width: 900px;
@@ -26,20 +25,58 @@ h1 { margin: 0; font-size: 40px; }
   padding: 20px;
 }
 
+/* ===== Header ===== */
+header {
+  text-align: center;
+  padding: 50px;
+  background: linear-gradient(90deg, #2563eb, #8b5cf6);
+  position: relative;
+  overflow: hidden;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 40px;
+}
+
+header h1 span {
+  display: inline-block;
+  animation: wave 1.2s infinite;
+}
+
+@keyframes wave {
+  0%, 60%, 100% { transform: rotate(0deg); }
+  20% { transform: rotate(15deg); }
+  40% { transform: rotate(-15deg); }
+}
+
+header p {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+/* ===== Cards ===== */
 .card {
   background: #1e293b;
   padding: 20px;
   margin: 20px 0;
   border-radius: 10px;
   transition: 0.3s;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+body.light-mode .card {
+  background: #e2e8f0;
+  color: #0f172a;
 }
 
 .card:hover {
   transform: scale(1.03);
 }
 
+/* ===== Headings & Links ===== */
 h2 {
-  border-bottom: 2px solid #38bdf8;
+  border-bottom: 2px solid #2563eb;
   padding-bottom: 5px;
 }
 
@@ -48,25 +85,79 @@ a {
   text-decoration: none;
 }
 
+body.light-mode a {
+  color: #2563eb;
+}
+
+/* ===== Buttons ===== */
 button {
-  background: #38bdf8;
+  background: linear-gradient(90deg, #2563eb, #8b5cf6);
   border: none;
   padding: 8px 12px;
   border-radius: 5px;
   cursor: pointer;
+  color: white;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
 button:hover {
-  background: #0ea5e9;
+  background: linear-gradient(90deg, #8b5cf6, #2563eb);
+}
+
+/* ===== Skill Bars ===== */
+.skill {
+  margin: 10px 0;
+}
+
+.skill p {
+  margin: 0 0 5px 0;
+}
+
+.skill .bar {
+  background: #334155;
+  border-radius: 5px;
+  overflow: hidden;
+  height: 15px;
+}
+
+.skill .bar div {
+  height: 100%;
+  background: #2563eb;
+  width: 0;
+  animation: fill 2s forwards;
+}
+
+@keyframes fill {
+  to { width: var(--percent); }
+}
+
+/* ===== Dark/Light Toggle ===== */
+#toggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 6px 12px;
+  border-radius: 5px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  cursor: pointer;
+  z-index: 100;
+}
+#toggle:hover {
+  background: #8b5cf6;
 }
 </style>
 </head>
 
 <body>
 
+<button id="toggle">Toggle Mode</button>
+
 <header>
-  <h1>Hi 👋, I'm Sayali Adsul</h1>
-<p>Fresher | DevOps & Cloud Enthusiast | Hands-on with AWS & DevOps</p>
+  <h1>Hi 👋, I'm <span>Sayali Adsul</span></h1>
+  <p>Fresher | DevOps & Cloud Enthusiast | Hands-on with AWS & DevOps</p>
 </header>
 
 <div class="container">
@@ -76,67 +167,80 @@ button:hover {
 <div class="card">
   <h3>Flask App on ECS</h3>
   <p>Containerized and deployed Flask application on AWS ECS.</p>
-  <button onclick="window.location.href='https://github.com/sayali12-cloud/flask-app-ecs'">View Project</button>
+  <button onclick="window.open('https://github.com/sayali12-cloud/flask-app-ecs', '_blank')">View Project</button>
 </div>
 
 <div class="card">
   <h3>DevOps Exam App</h3>
   <p>CI/CD pipeline using Jenkins and deployed on EC2.</p>
-  <button onclick="window.location.href='https://github.com/sayali12-cloud/devops-exam-app'">View Project</button>
+  <button onclick="window.open('https://github.com/sayali12-cloud/devops-exam-app', '_blank')">View Project</button>
 </div>
 
 <div class="card">
   <h3>S3 Backup Script</h3>
   <p>Automated file backup to AWS S3 using Python.</p>
-  <button onclick="window.location.href='https://github.com/sayali12-cloud/python-s3-backup'">View Project</button>
+  <button onclick="window.open('https://github.com/sayali12-cloud/python-s3-backup', '_blank')">View Project</button>
 </div>
+
 <h2>🛠️ Skills</h2>
 <div class="card">
-  <p>☁️ <a href="https://aws.amazon.com/" target="_blank">AWS: EC2, S3, VPC, IAM, CloudWatch</a></p>
-  
-  <p>🐳 <a href="https://www.docker.com/" target="_blank">Docker</a></p>
-  
-  <p>🔄 <a href="https://www.jenkins.io/" target="_blank">Jenkins (CI/CD)</a></p>
-  
-  <p>⚙️ <a href="https://www.linux.org/" target="_blank">Linux</a></p>
-  
-  <p>🔧 <a href="https://github.com/" target="_blank">Git & GitHub</a></p>
-  
-  <p>🐍 <a href="https://www.python.org/" target="_blank">Python (Basic)</a></p>
-  
-  <p>📦 <a href="https://www.terraform.io/" target="_blank">Terraform</a></p>
-  
-  <p>☸️ <a href="https://kubernetes.io/" target="_blank">Kubernetes (Basic)</a></p>
+  <div class="skill">
+    <p>AWS</p>
+    <div class="bar"><div style="--percent:80%"></div></div>
+  </div>
+  <div class="skill">
+    <p>Docker</p>
+    <div class="bar"><div style="--percent:75%"></div></div>
+  </div>
+  <div class="skill">
+    <p>Jenkins</p>
+    <div class="bar"><div style="--percent:70%"></div></div>
+  </div>
+  <div class="skill">
+    <p>Linux</p>
+    <div class="bar"><div style="--percent:70%"></div></div>
+  </div>
+  <div class="skill">
+    <p>Python</p>
+    <div class="bar"><div style="--percent:60%"></div></div>
+  </div>
+  <div class="skill">
+    <p>Terraform</p>
+    <div class="bar"><div style="--percent:50%"></div></div>
+  </div>
+  <div class="skill">
+    <p>Kubernetes</p>
+    <div class="bar"><div style="--percent:40%"></div></div>
+  </div>
 </div>
-  <h2>📄 Resume</h2>
-<div class="card">
 
+<h2>📄 Resume</h2>
+<div class="card">
   <a href="Sayali_Adsul_Resume.pdf" download>
     <button>📥 Download Resume</button>
   </a>
-
 </div>
 
 <h2>📩 Contact</h2>
 <div class="card">
   <p>Email: sayaliadsul6@gmail.com</p>
 </div>
+
 <h2>🔗 Connect With Me</h2>
 <div class="card">
-
-  <button onclick="window.open('https://github.com/sayali12-cloud', '_blank')">
-    💻 GitHub Profile
-  </button>
-
+  <button onclick="window.open('https://github.com/sayali12-cloud', '_blank')">💻 GitHub Profile</button>
   <br><br>
-
-  <button onclick="window.open('https://www.linkedin.com/in/sayali-adsul-8b0356341/', '_blank')">
-    🔗 LinkedIn Profile
-  </button>
-
+  <button onclick="window.open('https://www.linkedin.com/in/sayali-adsul-8b0356341/', '_blank')">🔗 LinkedIn Profile</button>
 </div>
 
 </div>
+
+<script>
+// Dark/Light mode toggle
+document.getElementById('toggle').onclick = () => {
+  document.body.classList.toggle('light-mode');
+};
+</script>
 
 </body>
 </html>
