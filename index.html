@@ -2,40 +2,53 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sayali Portfolio</title>
-
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 <style>
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
+  font-family: 'Montserrat', sans-serif;
   background: #0f172a;
-  color: white;
+  color: #fff;
 }
 
 header {
-  text-align: center;
-  padding: 50px;
-  background: linear-gradient(90deg, #2563eb, #38bdf8);
-}
-
-h1 { margin: 0; font-size: 40px; }
-
-.container {
-  max-width: 900px;
-  margin: auto;
-  padding: 20px;
-}
-
-.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 50px;
   background: #1e293b;
-  padding: 20px;
-  margin: 20px 0;
-  border-radius: 10px;
+}
+
+header img {
+  height: 50px;
+}
+
+nav a {
+  color: #38bdf8;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: 500;
   transition: 0.3s;
 }
 
-.card:hover {
-  transform: scale(1.03);
+nav a:hover {
+  color: #2563eb;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+h1, h2, h3 {
+  margin: 10px 0;
+}
+
+h1 {
+  font-size: 36px;
 }
 
 h2 {
@@ -43,151 +56,149 @@ h2 {
   padding-bottom: 5px;
 }
 
-a {
-  color: #38bdf8;
-  text-decoration: none;
+.card {
+  background: #1e293b;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 12px;
+  transition: 0.3s;
 }
 
-button {
+.card:hover {
+  transform: scale(1.03);
+}
+
+a.button, button {
   background: #38bdf8;
   border: none;
-  padding: 8px 12px;
-  border-radius: 5px;
+  padding: 8px 14px;
+  border-radius: 6px;
   cursor: pointer;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
 }
 
-button:hover {
+a.button:hover, button:hover {
   background: #0ea5e9;
+}
+
+.skills-grid, .projects-grid, .certifications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  background: #1e293b;
+  color: #888;
+  font-size: 14px;
 }
 </style>
 </head>
-
 <body>
 
+<!-- Header with logo and nav -->
 <header>
-  <h1>Hi 👋, I'm Sayali Adsul</h1>
-<p>Fresher | DevOps & Cloud Enthusiast | Hands-on with AWS & DevOps</p>
+  <img src="logo.png" alt="Sayali Logo">
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#resume">Resume</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
 
 <div class="container">
-  
-  <!-- About Me Section -->
-  <h2>👩‍💻 About Me</h2>
-  <div class="card">
-    <p>
-      Hi, I'm <strong>Sayali Adsul</strong>, a fresher and aspiring DevOps Engineer passionate about cloud computing and automation. 
+  <!-- Hero Section -->
+  <section id="hero" style="text-align:center; margin-bottom:40px;">
+    <h1>Hi 👋, I'm Sayali Adsul</h1>
+    <p>Fresher | DevOps & Cloud Enthusiast | Hands-on with AWS & DevOps</p>
+    <a href="#projects" class="button">View My Work</a>
+    <a href="Sayali_Adsul_AWS&DevOps_Resume.pdf" download class="button">Download Resume</a>
+  </section>
+
+  <!-- About Me -->
+  <section id="about">
+    <h2>👩‍💻 About Me</h2>
+    <div class="card">
+      <p>Hi, I'm <strong>Sayali Adsul</strong>, a fresher and aspiring DevOps Engineer passionate about cloud computing and automation. 
       I have hands-on practice with AWS, Docker, Jenkins, and Linux through projects and training. 
-      I am eager to learn, take on challenges, and contribute to real-world projects while growing my skills in DevOps and Cloud technologies.
-    </p>
-  </div>
-  
-<h2>🚀 Projects</h2>
+      I am eager to learn, take on challenges, and contribute to real-world projects while growing my skills in DevOps and Cloud technologies.</p>
+    </div>
+  </section>
 
-<div class="card">
-  <h3>Flask App on ECS</h3>
-  <p>Containerized and deployed Flask application on AWS ECS.</p>
-  <button onclick="window.location.href='https://github.com/sayali12-cloud/flask-app-ecs'">View Project</button>
+  <!-- Projects -->
+  <section id="projects">
+    <h2>🚀 Projects</h2>
+    <div class="projects-grid">
+      <div class="card">
+        <h3>Flask App on ECS</h3>
+        <p>Containerized and deployed Flask application on AWS ECS.</p>
+        <button onclick="window.location.href='https://github.com/sayali12-cloud/flask-app-ecs'">View Project</button>
+      </div>
+      <div class="card">
+        <h3>DevOps Exam App</h3>
+        <p>CI/CD pipeline using Jenkins and deployed on EC2.</p>
+        <button onclick="window.location.href='https://github.com/sayali12-cloud/devops-exam-app'">View Project</button>
+      </div>
+      <div class="card">
+        <h3>S3 Backup Script</h3>
+        <p>Automated file backup to AWS S3 using Python.</p>
+        <button onclick="window.location.href='https://github.com/sayali12-cloud/python-s3-backup'">View Project</button>
+      </div>
+      <div class="card">
+        <h3>Complaint Management System</h3>
+        <p>PHP-based system deployed using Docker on AWS EC2.</p>
+        <button onclick="window.location.href='https://github.com/sayali12-cloud/complaint_project'">View Project</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2>🛠️ Skills</h2>
+    <div class="skills-grid">
+      <div class="card">☁️ AWS: EC2, S3, VPC, IAM, CloudWatch</div>
+      <div class="card">🐳 Docker</div>
+      <div class="card">🔄 Jenkins (CI/CD)</div>
+      <div class="card">⚙️ Linux</div>
+      <div class="card">🔧 Git & GitHub</div>
+      <div class="card">🐍 Python (Basic)</div>
+      <div class="card">📦 Terraform</div>
+      <div class="card">☸️ Kubernetes (Basic)</div>
+    </div>
+  </section>
+
+  <!-- Resume -->
+  <section id="resume">
+    <h2>📄 Resume</h2>
+    <div class="card" style="text-align:center;">
+      <embed src="Sayali_Adsul_AWS&DevOps_Resume.pdf" type="application/pdf" width="100%" height="400px" style="border-radius:8px;">
+      <br><br>
+      <a href="Sayali_Adsul_AWS&DevOps_Resume.pdf" download class="button">📥 Download Resume</a>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>📩 Contact</h2>
+    <div class="card">
+      <p>Email: sayaliadsul6@gmail.com</p>
+      <a href="https://github.com/sayali12-cloud" target="_blank" class="button">💻 GitHub</a>
+      <a href="https://www.linkedin.com/in/sayali-adsul-8b0356341/" target="_blank" class="button">🔗 LinkedIn</a>
+    </div>
+  </section>
 </div>
 
-<div class="card">
-  <h3>DevOps Exam App</h3>
-  <p>CI/CD pipeline using Jenkins and deployed on EC2.</p>
-  <button onclick="window.location.href='https://github.com/sayali12-cloud/devops-exam-app'">View Project</button>
-</div>
-
-<div class="card">
-  <h3>S3 Backup Script</h3>
-  <p>Automated file backup to AWS S3 using Python.</p>
-  <button onclick="window.location.href='https://github.com/sayali12-cloud/python-s3-backup'">View Project</button>
-</div>
-
-  <div class="card">
-    <h3>Complaint Management System (Docker + AWS Deployment)</h3>
-    <p>This is a PHP-based Complaint Management System deployed using Docker on AWS EC2.
-     It allows users to submit complaints and admins to manage and update their status.</p>
-    <button onclick="window.location.href='https://github.com/sayali12-cloud/complaint_project'">View Project</button>
-</div>
-
-<h2>🛠️ Skills</h2>
-<div class="card">
-  <p>☁️ <a href="https://aws.amazon.com/" target="_blank">AWS: EC2, S3, VPC, IAM, CloudWatch</a></p>
-  
-  <p>🐳 <a href="https://www.docker.com/" target="_blank">Docker</a></p>
-  
-  <p>🔄 <a href="https://www.jenkins.io/" target="_blank">Jenkins (CI/CD)</a></p>
-  
-  <p>⚙️ <a href="https://www.linux.org/" target="_blank">Linux</a></p>
-  
-  <p>🔧 <a href="https://github.com/" target="_blank">Git & GitHub</a></p>
-  
-  <p>🐍 <a href="https://www.python.org/" target="_blank">Python (Basic)</a></p>
-  
-  <p>📦 <a href="https://www.terraform.io/" target="_blank">Terraform</a></p>
-  
-  <p>☸️ <a href="https://kubernetes.io/" target="_blank">Kubernetes (Basic)</a></p>
-</div>
-<h2>🎓 Certifications</h2>
-<div class="card" style="display: flex; flex-wrap: wrap; gap: 20px;">
-
-  <!-- AWS Certificate -->
-<div style="text-align: center;">
-  <a href="AWS_Certificate.png" target="_blank">
-    <img src="AWS_Certificate.png" alt="AWS Certificate" width="200" style="border-radius: 8px; transition: transform 0.3s;">
-  </a>
-  <p>AWS & DevOps – Certificate of Completion</p>
-</div>
-
- <!-- TCS iON Certificate -->
-<div style="text-align: center;">
-  <a href="Sayali_Adsul_TCS_iON.png" target="_blank">
-    <img src="Sayali_Adsul_TCS_iON.png" alt="TCS iON Certificate" width="200" style="border-radius: 8px; transition: transform 0.3s;">
-  </a>
-  <p>TCS iON Career Edge - Young Professional</p>
-</div>
-
-</div>
-
-<style>
-.card img:hover {
-  transform: scale(1.05);
-}
-</style>
-
-<h2>📄 Resume</h2>
-<div class="card" style="text-align: center;">
-  <!-- PDF preview -->
-  <embed src="Sayali_Adsul_AWS&DevOps_Resume.pdf" type="application/pdf" width="100%" height="400px" style="border-radius: 8px;">
-  
-  <br><br>
-  
-  <!-- Download button -->
-  <a href="Sayali_Adsul_AWS&DevOps_Resume.pdf" download>
-    <button style="padding: 8px 12px; border-radius: 5px; background-color: #38bdf8; border: none; cursor: pointer;">
-      📥 Download Resume
-    </button>
-  </a>
-</div>
-
-<h2>📩 Contact</h2>
-<div class="card">
-  <p>Email: sayaliadsul6@gmail.com</p>
-</div>
-<h2>🔗 Connect With Me</h2>
-<div class="card">
-
-  <button onclick="window.open('https://github.com/sayali12-cloud', '_blank')">
-    💻 GitHub Profile
-  </button>
-
-  <br><br>
-
-  <button onclick="window.open('https://www.linkedin.com/in/sayali-adsul-8b0356341/', '_blank')">
-    🔗 LinkedIn Profile
-  </button>
-
-</div>
-
-</div>
+<footer>
+  &copy; 2026 Sayali Adsul. All Rights Reserved.
+</footer>
 
 </body>
 </html>
